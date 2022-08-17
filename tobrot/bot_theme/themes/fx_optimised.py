@@ -13,8 +13,9 @@ class TXStyle:
 ┣🏷𝐓𝐨𝐠𝐠𝐥𝐞 : <code>🎞 Video 🎞</code>
 ┃
 ┗━♦️ℙ𝕠𝕨𝕖𝕣𝕖𝕕 𝔹𝕪 {UPDATES_CHANNEL}♦️━╹'''
-    SAVETHUMB_REPLY = "<code>Processing . . . 🔄</code>"
+    THUMB_REPLY = "<code>Processing . . . 🔄</code>"
     SAVE_THUMB_MSG = "<b>⚡<i>Custom Thumbnail 🖼 Saved for Next Uploads</i>⚡</b>\n\n <b><i>✅Your Photo is Set, Ready to Go ...👨‍🦯</i></b>."
+    SAVE_THUMB_FAIL_MSG = "<b><i>⛔Sorry⛔</i></b>\n\n<b>❌ Reply with Image to Save Your Custom Thumbnail.❌</b>"
     CLEAR_THUMB_SUCC_MSG = "<b><i>✅Success✅</i></b>\n\n <b>🖼Custom Thumbnail Cleared Successfully As Per Your Request.</b>"
     CLEAR_THUMB_FAIL_MSG = "<b><i>⛔Sorry⛔</i></b>\n\n <b>❌Nothing to Clear For You❌</b>"
     PREFIX_MSG = "⚡️<i><b>Custom Prefix Set Successfully</b></i> ⚡️ \n\n👤 <b>User :</b> {u_men}\n🆔 <b>User ID :</b> <code>{uid}</code>\n🗃 <b>Prefix :</b> <code>{t}</code>"
