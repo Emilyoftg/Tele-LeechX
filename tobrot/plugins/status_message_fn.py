@@ -135,7 +135,7 @@ async def status_message_f(client, message):
                 prog = "[{0}{1}{2}]".format(
                     "".join([FINISHED_PROGRESS_STR for _ in range(floor(percentage / 5))]),
                     HALF_FINISHED if floor(digits[1]) > 5 else UN_FINISHED_PROGRESS_STR,
-                    "".join([UN_FINISHED_PROGRESS_STR for _ in range(20 - floor(percentage / 5))])
+                    "".join([UN_FINISHED_PROGRESS_STR for _ in range(19 - floor(percentage / 5))])
                 )
                 is_file = file.seeder
                 curTime = time()
