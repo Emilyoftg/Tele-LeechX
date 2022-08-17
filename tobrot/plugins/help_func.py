@@ -90,7 +90,7 @@ async def user_settings(client, message):
     uid = message.from_user.id
     to_edit = await message.reply_text('Fetching your Details . . .')
     thumb_path = f'{DOWNLOAD_LOCATION}/thumbnails/{uid}.jpg'
-    if not os.exists(thumb_path):
+    if not os.path.exists(thumb_path):
         image = 'https://te.legra.ph/file/73712e784132c2af82731.jpg'
     else:
         image = thumb_path
