@@ -17,26 +17,6 @@ from psutil import disk_usage, cpu_percent, swap_memory, cpu_count, virtual_memo
 from pyrogram import enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-async def new_join_f(client, message):
-    chat_type = message.chat.type
-    if chat_type != enums.ChatType.PRIVATE:
-        await message.reply_text(
-            f"""<b>🙋🏻‍♂️ Hello dear!\n\n This Is A Leech Bot .This Chat Is Not Supposed To Use Me</b>\n\n<b>Current CHAT ID: <code>{message.chat.id}</code>""",
-            parse_mode=enums.ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('Channel', url='https://t.me/FuZionXTorrentQuater')
-                    ]
-                ]
-               )
-            )
-        # leave chat
-        await client.leave_chat(chat_id=message.chat.id, delete=True)
-    # delete all other messages, except for AUTH_CHANNEL
-    #await message.delete(revoke=True)
-
-
 async def stats(client, message):
     stats = '┏━━━━ 📊 𝗕𝗼𝘁 𝗦𝘁𝗮𝘁𝘀 📊 ━━━━━╻\n'
     if os.path.exists('.git'):
@@ -86,15 +66,10 @@ async def stats(client, message):
         disable_web_page_preview=True
     )
 
-
 async def help_message_f(client, message):
 
     reply_markup = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("🆘️ Open Help 🆘️", callback_data = "openHelp_pg1")
-            ]
-        ]
+        [[InlineKeyboardButton("🆘️ Open Help 🆘️", callback_data = "openHelp_pg1")]]
     )
     await message.reply_text(
         text = f"""┏━ 🆘 <b>HELP MODULE</b> 🆘 ━━━╻
@@ -110,3 +85,30 @@ async def help_message_f(client, message):
         disable_web_page_preview=True
     )
 
+async def user_settings(client, message):
+
+    uid = message.from_user.id
+    to_edit = await message.reply_text('Fetching your Details . . .')
+    thumb_path = f'{DOWNLOAD_LOCATION}/thumbnails/{uid}.jpg'
+    if not os.exists(thumb_path):
+        image = 'https://te.legra.ph/file/73712e784132c2af82731.jpg'
+    else:
+        image = thumb_path
+    __theme = USER_THEME[uid]
+    __prefix = PRE_DICT.get(uid, "-")
+    __caption = CAP_DICT.get(uid, "-")
+    __template = IMDB_TEMPLATE.get(uid, "Default Template")
+    
+    __text = f'''┏━ 𝙐𝙨𝙚𝙧 𝘾𝙪𝙧𝙧𝙚𝙣𝙩 𝙎𝙚𝙩𝙩𝙞𝙣𝙜𝙨 ━━╻
+┃
+┣ <b>User Prefix :</b> <code>{__prefix}</code>
+┣ <b>User Bot Theme :</b> <code>{__theme}</code>
+┣ <b>User Caption :</b> <code>{__caption}</code>
+┣ <b>User IMDB Template :</b> <code>{__template}</code>
+┃
+┗━━━━━━━━━━━━━━━━━━╹
+
+'''
+    await to_edit.delete()
+    await message.reply_photo(photo = image, caption=__text, parse_mode=enums.ParseMode.HTML)
+    
