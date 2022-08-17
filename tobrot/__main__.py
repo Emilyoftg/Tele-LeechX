@@ -69,7 +69,7 @@ from tobrot.plugins.incoming_message_fn import (g_clonee, g_yt_playlist,
                                                 incoming_purge_message_f,
                                                 incoming_youtube_dl_f,
                                                 rename_tg_file)
-from tobrot.plugins.help_func import help_message_f, stats
+from tobrot.plugins.help_func import help_message_f, stats, user_settings
 from tobrot.plugins.speedtest import get_speed
 from tobrot.plugins.mediainfo import mediainfo
 from tobrot.plugins.rclone_size import check_size_g, g_clearme
@@ -480,6 +480,13 @@ if __name__ == "__main__":
         & filters.chat(chats=AUTH_CHANNEL),
     )
     app.add_handler(user_theme_handler)
+    ##############################################################################
+    user_set_handler = MessageHandler(
+        user_settings,
+        filters=filters.command([f"currsettings", f"currsettings@{bot.username}"])
+        & filters.chat(chats=AUTH_CHANNEL),
+    )
+    app.add_handler(user_set_handler)
 
     logging.info(r'''
 ________    ______           ______                 ______ ____  __
