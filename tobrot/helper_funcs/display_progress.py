@@ -46,7 +46,7 @@ class Progress:
         diff = now - start
         reply_markup = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton((BotTheme(self._from_user)).CANCEL_PROG_BT, callback_data=(f"gUPcancel/{chat_id}/{mes_id}/{from_user}".encode("UTF-8"),)]
+                [InlineKeyboardButton((BotTheme(self._from_user)).CANCEL_PROG_BT, callback_data=f"gUPcancel/{chat_id}/{mes_id}/{from_user}".encode("UTF-8"),)]
             ]
         )
         if self.is_cancelled:
