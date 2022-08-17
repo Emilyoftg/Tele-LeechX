@@ -94,7 +94,7 @@ async def user_settings(client, message):
         image = 'https://te.legra.ph/file/73712e784132c2af82731.jpg'
     else:
         image = thumb_path
-    __theme = USER_THEME[uid]
+    __theme = USER_THEMES.get(uid, 'Default Bot Theme')
     __prefix = PRE_DICT.get(uid, "-")
     __caption = CAP_DICT.get(uid, "-")
     __template = IMDB_TEMPLATE.get(uid, "Default Template")
