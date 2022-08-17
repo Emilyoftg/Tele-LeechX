@@ -38,7 +38,8 @@ from tobrot import (
     LOG_FILE_NAME,
     DB_URI,
     user_settings,
-    bot
+    bot,
+    HALF_FINISHED
     )
 from tobrot.helper_funcs.display_progress import humanbytes, TimeFormatter
 from tobrot.helper_funcs.download_aria_p_n import aria_start
@@ -130,8 +131,10 @@ async def status_message_f(client, message):
             if file.status == "active":
                 umess = user_settings[file.gid]
                 percentage = int(file.progress_string(0).split('%')[0])
-                prog = "[{0}{1}]".format(
+                digits = [int(x) for x in str(("{}").format("%.2d" % percentage))]
+                prog = "[{0}{1}{2}]".format(
                     "".join([FINISHED_PROGRESS_STR for _ in range(floor(percentage / 5))]),
+                    HALF_FINISHED if floor(digits[1]) > 5 else UN_FINISHED_PROGRESS_STR,
                     "".join([UN_FINISHED_PROGRESS_STR for _ in range(20 - floor(percentage / 5))])
                 )
                 is_file = file.seeder
