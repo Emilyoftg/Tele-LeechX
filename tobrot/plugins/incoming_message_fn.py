@@ -7,7 +7,6 @@
 # This is Part of < https://github.com/5MysterySD/Tele-LeechX >
 # All Right Reserved
 
-
 import os
 import time
 from pathlib import Path
@@ -418,11 +417,11 @@ async def rename_tg_file(client, message):
         except Exception as g_g:
             LOGGER.error(f'Rename Error :{g_g}')
         response = {}
-        start_upload = time()
+        start_upload = time.time()
         final_response = await upload_to_tg(
             mess_age, new_name, usr_id, response, client
         )
-        end_upload = time()
+        end_upload = time.time()
         if not final_response:
             return
         try:
