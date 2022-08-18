@@ -13,8 +13,8 @@ from pathlib import Path
 import requests
 from asyncio import sleep as asleep
 from urllib.parse import unquote, quote
-
 from telegram import ParseMode
+
 from tobrot import (
     DOWNLOAD_LOCATION,
     CLONE_COMMAND_G,
@@ -33,7 +33,7 @@ from tobrot import (
     USER_DTS
 )
 from tobrot import bot, EDIT_SLEEP_TIME_OUT
-from tobrot.helper_funcs.display_progress import humanbytes
+from tobrot.helper_funcs.display_progress import humanbytes, TimeFormatter
 from tobrot.helper_funcs.bot_commands import BotCommands
 from tobrot.helper_funcs.admin_check import AdminCheck
 from tobrot.helper_funcs.cloneHelper import CloneHelper
