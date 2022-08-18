@@ -74,7 +74,7 @@ async def download_tg(client, message):
         if the_real_download_location:
             base_file_name = os.path.basename(the_real_download_location)
             try:
-                await mess_age.edit_text(f"<b>🔰Status : <i>Downloaded ✅</i></b> \n\n🗃<b> File Name</b>:  <code>{base_file_name}</code> \n\n⏳️<b> Time Taken</b>:  <u>{TimeFormatter(ms)}</u>")
+                await mess_age.edit_text(f"<b>🔰Status : <i>Downloaded ✅</i></b> \n\n🗃<b> File Name</b>:  <code>{base_file_name}</code> \n\n⏳️<b> Time Taken</b>:  <u>{TimeFormatter(ms * 1000)}</u>")
             except MessageNotModified:
                 pass
         else:
