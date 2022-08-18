@@ -61,12 +61,8 @@ class Progress:
             percentage = current * 100 / total
             digits = [int(x) for x in str(("{}").format("%.2d" % percentage))]
             speed = current / diff
-            elapsed_time = round(diff) * 1000
-            time_to_completion = round((total - current) / speed) * 1000
-            estimated_total_time = time_to_completion
-
-            elapsed_time = TimeFormatter(milliseconds=elapsed_time)
-            estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
+            elapsed_time = TimeFormatter(round(diff) * 1000)
+            estimated_total_time = TimeFormatter(round((total - current) / speed) * 1000)
 
             tmp = ((BotTheme(self._from_user)).PROG_MSG).format(
                 ''.join([FINISHED_PROGRESS_STR for _ in range(floor(percentage / 5))]),
@@ -80,7 +76,6 @@ class Progress:
                 t = humanbytes(total),
                 s = humanbytes(speed),
                 eta = elapsed_time if elapsed_time != '' else "0 s",
-                et = (time() - now),
                 UPDATES_CHANNEL = UPDATES_CHANNEL
             )
             try:
