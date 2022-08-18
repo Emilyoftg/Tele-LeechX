@@ -222,7 +222,7 @@ async def incoming_message_f(client, message):
             u_id = g_id,
             status_cmd = BotCommands.StatusCommand,
             UPDATES_CHANNEL = UPDATES_CHANNEL
-        )
+        ))
         is_zip = False
         is_cloud = False
         is_unzip = False
