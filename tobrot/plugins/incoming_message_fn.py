@@ -385,6 +385,7 @@ async def rename_tg_file(client, message):
         await message.reply("<b>⚠️ Opps ⚠️</b>\n\n <b><i>⊠ Reply with Telegram Media (File / Video)⁉️</b>", quote=True)
         return
     text__ = ''
+    reply_to = message.reply_to_message
     if reply_to.document:
         filename = [reply_to.document][0].file_name
         filesize = humanbytes([reply_to.document][0].file_size)
