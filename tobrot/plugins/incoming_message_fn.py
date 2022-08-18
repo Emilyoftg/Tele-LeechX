@@ -264,7 +264,7 @@ async def incoming_message_f(client, message):
     else:
         await i_m_sefg.edit_text(((BotTheme(g_id)).EXCEP_DEF_MSG).format(
             cf_name = cf_name
-        )
+        ))
 
 async def incoming_youtube_dl_f(client, message):
     current_user_id = message.from_user.id
@@ -273,7 +273,6 @@ async def incoming_youtube_dl_f(client, message):
         f"<b><i>🛃 Working For 🛃:</i></b> {u_men}", parse_mode=enums.ParseMode.HTML
     )
     i_m_sefg = await message.reply_text("<code>Prrocessing...🔃</code>", quote=True)
-    # LOGGER.info(message)
     if message.reply_to_message:
         dl_url, cf_name, yt_dl_user_name, yt_dl_pass_word = await extract_link(
             message.reply_to_message, "YTDL"
@@ -293,10 +292,8 @@ async def incoming_youtube_dl_f(client, message):
     if dl_url is not None:
         await i_m_sefg.edit_text("<code>Extracting Links . . . 🔀</code>")
         user_working_dir = os.path.join(DOWNLOAD_LOCATION, str(current_user_id))
-        # create download directory, if not exist
         if not os.path.isdir(user_working_dir):
             os.makedirs(user_working_dir)
-        # list the formats, and display in button markup formats
         thumb_image, text_message, reply_markup = await extract_youtube_dl_formats(
             dl_url, cf_name, yt_dl_user_name, yt_dl_pass_word, user_working_dir
         )
@@ -306,7 +303,6 @@ async def incoming_youtube_dl_f(client, message):
             with open(thumb_img, "wb") as thumb:
                 thumb.write(req.content)
             await message.reply_photo(
-                # text_message,
                 photo=thumb_img,
                 quote=True,
                 caption=text_message,
@@ -339,7 +335,7 @@ async def g_yt_playlist(client, message):
     if "youtube.com/playlist" in url:
         u_men = message.from_user.mention
         i_m_sefg = await message.reply_text(
-            f"<b>Ok Fine 🐈 {u_men} Bro!!:\n Your Request has been ADDED</b>\n\n <code> Please wait until Upload</code>",
+            f"<b>Ok Fine {u_men} Bro!!:\n Your Request has been ADDED</b>\n\n <code> Please wait until Upload</code>",
             parse_mode=enums.ParseMode.HTML
         )
         await yt_playlist_downg(message, i_m_sefg, client, is_cloud)
