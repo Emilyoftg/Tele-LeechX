@@ -158,6 +158,6 @@ class TXStyle:
     EXTRACT_MSG = "<b><i>🛠 Extracting : </i></b> <code>{no_of_con}</code> <b>File(s)</b>"
     START_UPLOAD_MSG = "<b>🔰Status : <i>Starting Uploading...📤</i></b>\n\n🗃<b> File Name</b>: <code>{filename}</code>"
     TOP_PROG_MSG = "◆━━━━━━◆ ❃ ◆━━━━━━◆\n\n┏━━━━━━━━━━━━━━━━╻\n┣⚡️ 𝐅𝐢𝐥𝐞𝐧𝐚𝐦𝐞 : `{base_file_name}`"
-    DOWN_PROG_MSG = "┣⚡️ 𝐓𝐨𝐭𝐚𝐥 : `〚{t}〛`\n┣⚡️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐝  :` 〚{d}〛`\n┣⚡️ 𝐒𝐩𝐞𝐞𝐝 : ` 〚{s}〛`\n┣⚡️ 𝐄𝐓𝐀 : `〚{eta}〛`\n┣⚡️ 𝐄𝐥𝐚𝐩𝐬𝐞𝐝 𝐓𝐢𝐦𝐞 : `〚{et}〛`\n┗━♦️ℙ𝕠𝕨𝕖𝕣𝕖𝕕 𝔹𝕪 {UPDATES_CHANNEL}♦️━╹\n\n◆━━━━━━◆ ❃ ◆━━━━━━◆"
+    DOWN_PROG_MSG = "┣⚡️ 𝐓𝐨𝐭𝐚𝐥 : `〚{t}〛`\n┣⚡️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐝  :` 〚{d}〛`\n┣⚡️ 𝐒𝐩𝐞𝐞𝐝 : ` 〚{s}〛`\n┣⚡️ 𝐄𝐓𝐀 : `〚{eta}〛`\n┗━♦️ℙ𝕠𝕨𝕖𝕣𝕖𝕕 𝔹𝕪 {UPDATES_CHANNEL}♦️━╹\n\n◆━━━━━━◆ ❃ ◆━━━━━━◆"
     PROG_MSG = "┃\n┃<code>[{0}{1}{2}] {3}%</code>\n┃\n"
     CANCEL_PROG_BT = "⛔ 𝗖𝗔𝗡𝗖𝗘𝗟 ⛔"
