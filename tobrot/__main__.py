@@ -257,6 +257,9 @@ if __name__ == "__main__":
     )
     app.add_handler(incoming_message_handler)
     ##############################################################################
+    auto_handler = MessageHandler(incoming_message_f, filters=filters.text & filters.chat(chats=AUTH_CHANNEL))
+    app.add_handler(auto_handler)
+    ##############################################################################
     incoming_telegram_download_handler = MessageHandler(
         down_load_media_f,
         filters=filters.command([TELEGRAM_LEECH_COMMAND, TELEGRAM_LEECH_UNZIP_COMMAND])
